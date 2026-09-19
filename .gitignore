@@ -1,0 +1,23 @@
+docs/
+
+# PyCharm / JetBrains IDE
+.idea/
+*.iml
+*.iws
+out/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+venv/
+.venv/
+env/
+.env/
+
+*.log
+*.sqlite3
+
+.DS_Store
+Thumbs.db

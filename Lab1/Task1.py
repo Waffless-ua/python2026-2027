@@ -1,5 +1,4 @@
 # Оголошення змінних
-
 n1 = 2
 n2 = 34
 nf1 = 5.4
@@ -20,3 +19,15 @@ print(type(str2), str2)
 
 print(type(bl1), bl1)
 print(type(bl2), bl2)
+
+# Перетворення чисел
+num_to_string = str(n1)
+print("Число у рядок:", num_to_string, type(num_to_string))
+
+string_num = "100"
+string_to_int = int(string_num)
+print("Рядок у ціле число:", string_to_int, type(string_to_int))
+
+string_float = "12.5"
+string_to_float = float(string_float)
+print("Рядок у дробове число:", string_to_float, type(string_to_float))

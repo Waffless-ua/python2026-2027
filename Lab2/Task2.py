@@ -21,7 +21,10 @@ print(f"Відсортований список: {sort_list}")
 no_duplicated_numbers = list(set(number_list))
 print(f"Список без дублікатів: {no_duplicated_numbers}")
 
+average = sum(number_list) / len(number_list)
+
 greater_than_average_numbers = [
-    number for number in number_list if number > sum(number_list) / len(number_list)
+    number for number in number_list
+    if number > average
 ]
 print(f"Елементи, більші за середнє арифметичне: {greater_than_average_numbers}")

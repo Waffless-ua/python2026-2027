@@ -1,4 +1,4 @@
-text = str(input('Введіть будь-який текст:'))
+text = input('Введіть будь-який текст:')
 
 words = text.split()
 

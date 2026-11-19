@@ -29,35 +29,52 @@ def log_event(filename: str, level: Level, message: str) -> None:
     return
 
 
-log_event(FILENAME, Level.INFO, "idk")
-log_event(FILENAME, Level.WARNING, "idk")
-log_event(FILENAME, Level.ERROR, "idk")
+log_event(FILENAME, Level.INFO, "Програму запущено")
+log_event(FILENAME, Level.INFO, "Налаштування завантажено")
+log_event(FILENAME, Level.INFO, "Користувач увійшов у систему")
+log_event(FILENAME, Level.WARNING, "Не заповнено необов'язкове поле")
+log_event(FILENAME, Level.ERROR, "Не вдалося відкрити файл")
+log_event(FILENAME, Level.INFO, "Створено резервну копію")
+log_event(FILENAME, Level.WARNING, "Мало вільного місця на диску")
+log_event(FILENAME, Level.ERROR, "Помилка збереження даних")
+log_event(FILENAME, Level.WARNING, "Перевищено час очікування")
+log_event(FILENAME, Level.INFO, "Роботу програми завершено")
 
 
-def read_log(filename: str, level: Level | None = None) -> None:
+def read_log(filename: str, level: Level | None = None) -> list[str]:
+    records: list[str] = []
+
     try:
         with open(filename, "r", encoding="utf-8") as file:
-            if level is None:
-                print(file.read())
-                return
-
-            for line_number, line in enumerate(file, start=1):
+            for line in file:
                 line = line.strip()
-                if level.value in line:
-                    print(line)
+                if not line:
+                    continue
+
+                parts = line.split("] ", maxsplit=2)
+
+                if level is None:
+                    records.append(line)
+                elif len(parts) == 3 and parts[1] == f"[{level.value}":
+                    records.append(line)
 
     except FileNotFoundError:
         print(f'Файл "{filename}" не знайдено')
-        return
     except PermissionError:
-        print(f'Немає прав на читання "{filename}"')
-        return
+        print(f'Немає прав доступу до "{filename}"')
     except UnicodeDecodeError:
-        print(f'Не вдалося прочитати "{filename}" у кодуванні UTF-8')
-        return
+        print(f'Файл "{filename}" не вдалося прочитати в кодуванні UTF-8')
 
-read_log(FILENAME, Level.INFO)
-read_log(FILENAME, Level.WARNING)
-read_log(FILENAME, Level.ERROR)
+    return records
 
-read_log(FILENAME)
+for level in Level:
+    records = read_log(FILENAME, level)
+
+    print(f"\n{level.value}: {len(records)} записів")
+    for record in records:
+        print(record)
+
+print("\nКількість записів кожного рівня:")
+for level in Level:
+    records = read_log(FILENAME, level)
+    print(f"{level.value}: {len(records)}")

@@ -32,4 +32,4 @@ single_tuple = (5,)
 
 print("(5):", number, type(number).__name__)
 print("(5,):", single_tuple, type(single_tuple).__name__)
-print("Кортеж утворює кома. Без коми дужки лише групують вираз.")
+#Кортеж утворює кома. Без коми дужки лише групують вираз

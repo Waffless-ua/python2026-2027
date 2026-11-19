@@ -1,0 +1,29 @@
+EMAIL-АДРЕСИ
+ivan@example.com
+maria.petrenko@example.org
+olena@example.net
+support@company.com
+bogdan@example.org
+iryna.koval@example.com
+sofia+study@example.net
+dmytro@example.com
+office@university.edu.ua
+
+ТЕЛЕФОНИ
++38(067)123-45-67
+0671234567
+067-123-45-67
++380501112233
++38 (093) 222-33-44
+050 444 55 66
+(096)777-88-99
++380 44 123 45 67
+
+ДАТИ (ISO)
+2026-11-15
+2025-09-02
+2004-03-24
+2026-12-01
+2026-10-10
+2026-12-31
+
